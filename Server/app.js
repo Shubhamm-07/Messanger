@@ -6,7 +6,13 @@ const socket = require("socket.io");
 const connect = require("./config/db");
 
 const app = express();
-app.use(cors());
+
+const corsOptions = {
+  origin: "https://messanger-lemon.vercel.app", // frontend URL
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true, // if you need cookies/auth
+};
+app.use(cors(corsOptions));
 app.use(express.json());
 
 const userController = require("./controller/user");
@@ -31,7 +37,7 @@ const startServer = async () => {
     const io = socket(server, {
       pingTimeout: 6000,
       cors: {
-        origin: "https://messanger-beryl.vercel.app",
+        origin: "https://messanger-lemon.vercel.app",
       },
     });
 
