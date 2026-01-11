@@ -13,7 +13,7 @@ export const authLogout = () => ({ type: LOGOUT, payload: {} });
 export const authRegister = (url, user) => async (dispatch) => {
   dispatch(authLoading(true));
   try {
-    let res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/auth/register`, {
+    let res = await fetch(url, {
       method: "POST",
       body: JSON.stringify(user),
       headers: {
