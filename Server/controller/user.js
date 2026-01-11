@@ -55,13 +55,13 @@ router.delete("/", authenticate, async (req, res) => {
 router.post("/login", async (req, res) => {
   try {
     let user = await User.findOne({ email: req.body.email });
-    if (!user) return res.status(400).send("emai not exist");
+    if (!user) return res.status(400).json({ message: "email does not exist" });
     let match = user.checkPassword(req.body.password);
-    if (!match) return res.status(400).send("password is wrong");
+    if (!match) return res.status(400).json({ message: "password is wrong" });
     let token = newToken(user);
-    return res.status(200).send({ user, token });
+    return res.status(200).json({ user, token }); 
   } catch (err) {
-    return res.status(500).send(err.message);
+    return res.status(500).json({ message: err.message });
   }
 });
 
