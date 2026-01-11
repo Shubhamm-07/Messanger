@@ -32,7 +32,7 @@ export const RegisterComp = () => {
     reader.readAsDataURL(file);
   };
   const handleSubmit = () => {
-    const url = "https://messanger-br6c.onrender.com/auth";
+    const url = "https://gochat-k7kp.onrender.com/auth";
     if (user.pic) regData["pic"] = user.pic;
     dispatch(authRegister(url, regData));
   };

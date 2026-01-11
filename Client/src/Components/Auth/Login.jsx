@@ -21,7 +21,7 @@ export const LoginComp = () => {
   };
 
   const handleSubmit = () => {
-    const url = "https://messanger-br6c.onrender.com/auth/login";
+    const url = "https://gochat-k7kp.onrender.com/auth/login";
     dispatch(authRegister(url, regData));
   };
   if (user._id) {
