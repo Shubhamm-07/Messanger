@@ -23,7 +23,7 @@ router.get("/", authenticate, async (req, res) => {
   res.send(users);
 });
 
-router.post("/register", async (req, res) => {
+router.post("/", async (req, res) => {
   try {
     let user = await User.create(req.body);
     let token = newToken(user);
